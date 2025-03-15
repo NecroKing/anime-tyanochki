@@ -130,6 +130,9 @@
         function closeAlert() {
             document.getElementById('alertBox').style.display = 'none';
 
+            // Убедимся, что таймер не запустится сразу при загрузке страницы
+            clearTimeout(timer);
+
             // Запуск таймера на 1 минуту (60 000 миллисекунд)
             timer = setTimeout(() => {
                 document.getElementById('blueScreen').style.display = 'flex';
