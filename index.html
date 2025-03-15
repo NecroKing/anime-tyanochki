@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аниме девочки</title>
+    <title>Anime Girls/title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -206,6 +206,32 @@
             <button onclick="showBlockMessage()">18+</button>
         </div>
     </div>
+
+    <!-- Добавлены дополнительные картинки -->
+    <div class="image-container">
+        <img src="anime5.jpg" alt="Anime 5">
+        <div class="image-description">
+            <button onclick="openError()">Увеличить</button>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="anime6.jpg" alt="Anime 6">
+        <div class="image-description">
+            <button onclick="openError()">Увеличить</button>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="anime7.jpg" alt="Anime 7">
+        <div class="image-description">
+            <button onclick="openError()">Увеличить</button>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="anime18.jpg" alt="Anime 18" class="blurred">
+        <div class="image-description">
+            <button onclick="showBlockMessage()">18+</button>
+        </div>
+    </div>
 </div>
 
 <div id="blockMessage">
@@ -244,9 +270,6 @@
     }
 
     function startPayment() {
-        // Не скрывать предупреждение, оно должно остаться на экране до конца отсчёта
-        // document.getElementById("blockMessage").style.display = "none";
-        // Вместо этого скрываем кнопку оплаты
         document.querySelector('#blockMessage button').style.display = 'none';
         document.getElementById("payment").style.display = "block";
     }
