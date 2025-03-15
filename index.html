@@ -7,12 +7,68 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000;
+            background: url('anime69.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             text-align: center;
             margin: 0;
             padding: 0;
+            position: relative;
         }
+
+        /* Полупрозрачные элементы для фона */
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .circle, .square {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+        }
+
+        .circle1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 20%;
+        }
+
+        .circle2 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 30%;
+        }
+
+        .square1 {
+            width: 120px;
+            height: 120px;
+            bottom: 20%;
+            left: 10%;
+        }
+
+        .square2 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 10%;
+        }
+
         .gallery {
             display: flex;
             justify-content: center;
@@ -20,6 +76,7 @@
             gap: 20px;
             margin-top: 20px;
         }
+
         .image-container {
             position: relative;
             width: 200px;
@@ -27,17 +84,21 @@
             border: 2px solid #fff;
             overflow: hidden;
         }
+
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .blurred {
             filter: blur(5px);
         }
+
         .image-container:hover .image-description {
             display: block;
         }
+
         .image-description {
             position: absolute;
             bottom: 0;
@@ -49,6 +110,7 @@
             padding: 5px 0;
             display: none;
         }
+
         #blockMessage {
             display: none;
             background: rgba(0, 0, 0, 0.8);
@@ -61,15 +123,18 @@
             padding: 20px;
             z-index: 100;
         }
+
         #timer {
             font-size: 25px;
             color: yellow;
         }
+
         #error {
             font-size: 20px;
             color: red;
             display: none;
         }
+
         .stop-sign {
             width: 50px;
             height: 50px;
@@ -77,11 +142,13 @@
             top: 10px;
             left: 10px;
         }
+
         .payment {
             display: none;
             margin-top: 20px;
             color: #fff;
         }
+
         .payment button {
             padding: 10px;
             background-color: #ff0000;
@@ -90,6 +157,7 @@
             cursor: pointer;
             font-size: 18px;
         }
+
         #finalMessage {
             display: none;
             font-size: 30px;
@@ -105,6 +173,13 @@
     </style>
 </head>
 <body>
+
+<div class="background-shapes">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="square square1"></div>
+    <div class="square square2"></div>
+</div>
 
 <div class="gallery">
     <div class="image-container">
@@ -157,7 +232,7 @@
 
     function showBlockMessage() {
         document.getElementById("blockMessage").style.display = "block";
-        let timeLeft = 300;
+        let timeLeft = 300;  // Таймер на 5 минут
         countdown = setInterval(function() {
             timeLeft--;
             document.getElementById("timer").innerText = `Время до блокировки: ${timeLeft} секунд`;
@@ -169,7 +244,10 @@
     }
 
     function startPayment() {
-        document.getElementById("blockMessage").style.display = "none";
+        // Не скрывать предупреждение, оно должно остаться на экране до конца отсчёта
+        // document.getElementById("blockMessage").style.display = "none";
+        // Вместо этого скрываем кнопку оплаты
+        document.querySelector('#blockMessage button').style.display = 'none';
         document.getElementById("payment").style.display = "block";
     }
 
